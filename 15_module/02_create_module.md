@@ -1,0 +1,87 @@
+## 创建模块
+
+创建一个模块非常简单，有两种方式：
+
+- 创建一个 `.py` 文件，即可创建一个模块；
+
+- 创建一个文件夹，则该文件夹也是一个模块（包）。
+
+模块中可以无任何内容。但模块是用来组织代码，实现处理各类问题或完成各种功能的，这更便于应用或开发。例如正则模块 re，科学计算库 pandas 等。
+
+创建一个文件夹，如果文件夹中包含一个 `__init__.py` 模块，则该文件夹是一个常规包；否则是一个命名空间包。包中还可以再创建子包或子模块。
+
+`__init__.py` 文件中可以无任何内容，但因为当一个常规包被导入时，这个 `__init__.py` 文件会隐式地被执行，所以通常用来写入一些导入包即可执行的代码，或导入子包，或导入子包中模块的属性等，从而可以直接调用某些属性，例如 pandas 包的文档描述属性 `__doc__` 和 DataFrame 数据结构。
+
+
+```python
+import folder # 空文件夹
+folder
+```
+
+
+
+
+    <module 'folder' (namespace)>
+
+
+
+
+```python
+import pandas as pd
+
+print(pd.__doc__)
+```
+
+    
+    pandas - a powerful data analysis and manipulation library for Python
+    =====================================================================
+    
+    **pandas** is a Python package providing fast, flexible, and expressive data
+    structures designed to make working with "relational" or "labeled" data both
+    easy and intuitive. It aims to be the fundamental high-level building block for
+    doing practical, **real world** data analysis in Python. Additionally, it has
+    the broader goal of becoming **the most powerful and flexible open source data
+    analysis / manipulation tool available in any language**. It is already well on
+    its way toward this goal.
+    
+    Main Features
+    -------------
+    Here are just a few of the things that pandas does well:
+    
+      - Easy handling of missing data in floating point as well as non-floating
+        point data.
+      - Size mutability: columns can be inserted and deleted from DataFrame and
+        higher dimensional objects
+      - Automatic and explicit data alignment: objects can be explicitly aligned
+        to a set of labels, or the user can simply ignore the labels and let
+        `Series`, `DataFrame`, etc. automatically align the data for you in
+        computations.
+      - Powerful, flexible group by functionality to perform split-apply-combine
+        operations on data sets, for both aggregating and transforming data.
+      - Make it easy to convert ragged, differently-indexed data in other Python
+        and NumPy data structures into DataFrame objects.
+      - Intelligent label-based slicing, fancy indexing, and subsetting of large
+        data sets.
+      - Intuitive merging and joining data sets.
+      - Flexible reshaping and pivoting of data sets.
+      - Hierarchical labeling of axes (possible to have multiple labels per tick).
+      - Robust IO tools for loading data from flat files (CSV and delimited),
+        Excel files, databases, and saving/loading data from the ultrafast HDF5
+        format.
+      - Time series-specific functionality: date range generation and frequency
+        conversion, moving window statistics, date shifting and lagging.
+    
+    
+
+
+```python
+# 直接调用子包 core 中模块 frame 的属性 DataFrame
+pd.DataFrame
+```
+
+
+
+
+    pandas.core.frame.DataFrame
+
+
